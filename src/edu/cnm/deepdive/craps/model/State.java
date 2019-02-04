@@ -1,5 +1,8 @@
 package edu.cnm.deepdive.craps.model;
 
+/**
+ * class designating keywords that we refer to when determining game state.
+ */
 public enum State {
   COME_OUT {
     @Override
@@ -33,6 +36,12 @@ public enum State {
   WIN,
   LOSS;
 
+  /**
+   *
+   * @param roll method that generates two random numbers as if throwing two six-sided dice.
+   * @param pointValue sum of two separate die rolls
+   * @return
+   */
   public State change(int roll, int pointValue) {
     return this;
 

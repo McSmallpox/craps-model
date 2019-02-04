@@ -5,6 +5,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ *class that executes the craps game step-by-step
+ */
 public class Game {
 
   private int pointValue;
@@ -14,12 +17,18 @@ public class Game {
   private long wins;
   private long losses;
 
-
+  /**
+   *  initializing rng and a list in which to store die rolls.
+   * @param rng initializing the method we will use to generate our die rolls.
+   */
   public Game(Random rng) {
     this.rng = rng;
     rolls = new LinkedList<>();
   }
 
+  /**
+   *resetting the game to its initial state, @link{State#COME_OUT}
+   */
   public void reset() {
     state = State.COME_OUT;
     pointValue = 0;
@@ -38,6 +47,11 @@ public class Game {
     rolls.add(diceRoll);
   }
 
+  /**
+   * Returns current state of game. will keep tallies based off how many times the game is played
+   * and how many wins or losses the user has.
+   * @return
+   */
   public State play() {
     while (state != State.WIN && state != State.LOSS) {
       roll();
